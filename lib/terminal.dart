@@ -1,5 +1,7 @@
+import 'package:emilakerman_website/constant_links.dart';
 import 'package:emilakerman_website/text_field_history.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class CustomTerminal extends StatefulWidget {
   const CustomTerminal({super.key});
@@ -13,23 +15,43 @@ class _CustomTerminalState extends State<CustomTerminal> {
   FocusNode myFocusNode = FocusNode();
 
   void saveTextAndDisplayInTerminal(String text) {
-    checkInput(text);
     setState(() {
       history.add(text);
     });
+    checkInput(text);
   }
 
   void checkInput(String text) {
     switch (text) {
+      case 'clear':
+        setState(() => history.clear());
       case 'cd':
         print('opened folder!');
       case 'ls':
         print('showing contents of folder!');
+        setState(() => history = history + rootFolders);
       case 'mkdir':
         print('created folder!');
+      case 'help':
+        setState(
+          () => history.add(
+            'eShell: available commands: clear, ls, help, open github, open linkedin',
+          ),
+        );
+      case 'open github':
+        _openLink(ConstantLinks.github);
+      case 'open linkedin':
+        _openLink(ConstantLinks.linkedin);
       default:
-        print('uknown command!');
+        setState(() => history.add('eShell: command not found: $text'));
     }
+  }
+
+  void _openLink(String destination) {
+    html.window.open(
+      destination,
+      destination,
+    );
   }
 
   @override

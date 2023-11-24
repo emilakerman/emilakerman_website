@@ -1,3 +1,4 @@
+import 'package:emilakerman_website/constant_links.dart';
 import 'package:emilakerman_website/terminal.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_icons/simple_icons.dart';
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
                   ? const SizedBox.shrink()
                   : _buildIconButton(
                       icon: SimpleIcons.github,
-                      destination: 'https://github.com/emilakerman',
+                      destination: ConstantLinks.github,
                       isGithub: true,
                     ),
               widget.displayPDF ? _showCV() : const SizedBox.shrink(),
