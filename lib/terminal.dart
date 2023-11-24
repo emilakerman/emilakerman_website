@@ -42,6 +42,8 @@ class _CustomTerminalState extends State<CustomTerminal> {
         _openLink(ConstantLinks.github);
       case 'open linkedin':
         _openLink(ConstantLinks.linkedin);
+      case 'open winspeed':
+        _openLink(ConstantLinks.winspeed);
       default:
         setState(() => history.add('eShell: command not found: $text'));
     }
