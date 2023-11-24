@@ -1,10 +1,11 @@
+import 'package:emilakerman_website/terminal.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_icons/simple_icons.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 void main() {
-  runApp(MyApp(displayPDF: false));
+  runApp(CustomTerminal());
 }
 
 class MyApp extends StatefulWidget {
@@ -48,8 +49,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget _showCV() {
-    return Expanded(
-      child: const Image(
+    return const Expanded(
+      child: Image(
         image: NetworkImage('assets/cv_for_website.png'),
       ),
     );
